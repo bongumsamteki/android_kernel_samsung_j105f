@@ -381,7 +381,7 @@ __v7_setup_stack:
 	.align
 
 	/* .section ".proc.info.init", #alloc, #execinstr */
-	.section ".proc.info.init", "ax", %progbits
+	.section ".proc.info.init", "ax"
 
 	/*
 	 * Standard v7 proc info content
