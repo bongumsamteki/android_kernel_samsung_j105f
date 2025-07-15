@@ -948,7 +948,7 @@ swapper_4m_tsb:
 	.globl	prom_tba, tlb_type
 prom_tba:	.xword	0
 tlb_type:	.word	0	/* Must NOT end up in BSS */
-	.section	".fixup",#alloc,#execinstr
+	.section	".fixup", "ax"
 
 	.globl	__ret_efault, __retl_efault, __ret_one, __retl_one
 ENTRY(__ret_efault)

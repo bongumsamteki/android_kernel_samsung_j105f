@@ -14,7 +14,7 @@
 #define EXECINSTR #execinstr
 #define EX(x,y,a,b) 				\
 98: 	x,y;					\
-	.section .fixup,ALLOC,EXECINSTR;	\
+	.section .fixup, "ax";	\
 	.align	4;				\
 99:	ba 30f;					\
 	 a, b, %o0;				\
@@ -168,7 +168,7 @@ __bzero:
 	 clr	%o0
 __memset_end:
 
-	.section .fixup,#alloc,#execinstr
+	.section .fixup, "ax"
 	.align	4
 20:
 	cmp	%g2, 8

@@ -149,7 +149,7 @@ __csum_partial_copy_start:
 #define EXECINSTR #execinstr
 #define EX(x,y,a,b)				\
 98:     x,y;                                    \
-        .section .fixup,ALLOC,EXECINSTR;	\
+        .section .fixup, "ax";	\
         .align  4;                              \
 99:     ba 30f;                                 \
          a, b, %o3;                             \
@@ -583,7 +583,7 @@ __csum_partial_copy_end:
 	ret
 	 restore
 
-        .section __ex_table,#alloc
+        .section __ex_table, "a"
         .align 4
         .word 5b,2
 	.word 6b,2

@@ -808,7 +808,7 @@ lvl14_save:
 	.word	0
 	.word	t_irq14
 
-        .section        ".fixup",#alloc,#execinstr
+        .section        ".fixup", "ax"
         .globl  __ret_efault
 __ret_efault:
         ret

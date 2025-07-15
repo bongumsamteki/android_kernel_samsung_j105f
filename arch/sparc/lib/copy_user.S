@@ -17,11 +17,9 @@
 #include <asm/thread_info.h>
 
 /* Work around cpp -rob */
-#define ALLOC #alloc
-#define EXECINSTR #execinstr
 #define EX(x,y,a,b) 				\
 98: 	x,y;					\
-	.section .fixup,ALLOC,EXECINSTR;	\
+	.section .fixup, "ax";	\
 	.align	4;				\
 99:	ba fixupretl;				\
 	 a, b, %g3;				\
@@ -357,7 +355,7 @@ short_aligned_end:
 	b	copy_user_last7
 	 mov	%o2, %g1
 
-	.section .fixup,#alloc,#execinstr
+	.section .fixup, "ax"
 	.align	4
 97:
 	mov	%o2, %g3
